@@ -533,13 +533,13 @@ var calanderData = [
    }
 ]
 
-var tableness = ["name", "type", "focus", "startDate", "endDate", "location", "notes"]
+var tableness = [{databaseName:"name", tableHeaderName:"Event Name"}, {databaseName:"type", tableHeaderName:"Event Type"}, {databaseName:"focus", tableHeaderName:"Description"}, {databaseName:"startDate", tableHeaderName: "Date of Event"}, {databaseName:"endDate", tableHeaderName:"End Date"}, {databaseName:"location", tableHeaderName:"Location"}, {databaseName:"notes", tableHeaderName: "Additional Notes"}]
 
  function doCalendar(arr) {
 	var out = '<table class="table">'; 
    out += "<tr>"
    for(i=0; i < tableness.length; i++) {
-      out += "<th>" + tableness[i] + "</th>" 
+      out += "<th>" + tableness[i].tableHeaderName + "</th>" 
    }
 
    out += "</tr>"
@@ -550,7 +550,7 @@ var tableness = ["name", "type", "focus", "startDate", "endDate", "location", "n
 	for(i = 0; i < arr.length; i++) {
         out += "<tr>";
         for(j = 0; j < tableness.length; j++) {
-        	out += "<td>" + (tableness[j]== "name"?('<a href="' + arr[i].url + '">'): "") + arr[i] [tableness[j]] + (tableness[j]== "name"?('</a>'): "") + "</td>" 
+        	out += "<td>" + (tableness[j].databaseName== "name"?('<a href="' + arr[i].url + '">'): "") + arr[i] [tableness[j].databaseName] + (tableness[j].databaseName== "name"?('</a>'): "") + "</td>" 
         }
         out += "</tr>"
     }
