@@ -537,6 +537,15 @@ var tableness = ["name", "type", "focus", "startDate", "endDate", "location", "n
 
  function doCalendar(arr) {
 	var out = '<table class="table">'; 
+   out += "<tr>"
+   for(i=0; i < tableness.length; i++) {
+      out += "<th>" + tableness[i] + "</th>" 
+   }
+
+   out += "</tr>"
+
+
+
 	var i;
 	for(i = 0; i < arr.length; i++) {
         out += "<tr>";
